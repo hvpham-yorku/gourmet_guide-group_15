@@ -29,10 +29,10 @@ npm start
 ```
 
 ## Contribution
-We welcome contributions to RecipeDB\! Please follow these guidelines to get started:
+We welcome contributions to Gourmet Guide\! Please follow these guidelines to get started:
 
 * Branch Naming: Use feature/\<feature-name\> for new features and bugfix/\<issue-number\> for bug fixes.  
 * Git Flow: We follow the Git flow model, and all changes should be merged into the main branch via pull requests.  
 * Issues and PRs: Use GitHub Issues for reporting bugs or requesting features. Submit pull requests with a clear description of your changes.
 
-Thank you for helping to make RecipeDB a valuable resource for food enthusiasts everywhere\!  
+Thank you for helping to make Gourmet Guide a valuable resource for food enthusiasts everywhere\!  
