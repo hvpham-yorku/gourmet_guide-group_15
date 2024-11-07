@@ -1,44 +1,38 @@
 # Gourmet Guide
 
 ## Motivation
+Gourmet Guide is a platform designed for food lovers, home cooks, and professional chefs to easily find, share, and organize recipes. With features like personalized recommendations and easily accessible video tutorials, Gourmet Guide aims to save users time and help them discover new dishes by providing a curated selection of recipes and recommended cooking channels.
+
+Our objective is to build a recipe web app that users can use to search for the recipe of their next meal. It will have a database that contains recommended and well-reviewed/curated/reputable recipes and will allow users to search for specific recipes using filters such as by main ingredient, by cuisine, and by dietary restrictions. The application will also integrate YouTube videos into our web app, allowing people to find videos showcasing recipes related to their search and recommended channels.
 
 ## Installation
+Create `/server/.env` file and with the following environment variables:
+```
+MONGODB_URI=mongodb://localhost:27017/
+SERVER_PORT=5000
+```
+Start MongoDB
+```
+path/to/mongod.exe
+```
+Install backend dependencies and start the server
+```
+cd server
+npm install
+npm start
+```
+Install frontend dependencies and start the server
+```
+cd client
+npm install
+npm start
+```
 
 ## Contribution
+We welcome contributions to RecipeDB\! Please follow these guidelines to get started:
 
-## Available Scripts
+* Branch Naming: Use feature/\<feature-name\> for new features and bugfix/\<issue-number\> for bug fixes.  
+* Git Flow: We follow the Git flow model, and all changes should be merged into the main branch via pull requests.  
+* Issues and PRs: Use GitHub Issues for reporting bugs or requesting features. Submit pull requests with a clear description of your changes.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Thank you for helping to make RecipeDB a valuable resource for food enthusiasts everywhere\!  
