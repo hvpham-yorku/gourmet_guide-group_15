@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import useDebounce from "@/hooks/useDebounce";
+
 /*
 {
 	dietary-restriction1: [ingredient1, ingredient2, ...],
@@ -9,6 +11,7 @@ import { useEffect, useState } from "react";
 
 function RecipeSearchEngine() {
 	const [query, setQuery] = useState("");
+	const debouncedQuery = useDebounce(query);
 
 	useEffect(() => console.log(query), [query]);
 
