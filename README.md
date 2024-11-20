@@ -25,7 +25,7 @@ Install frontend dependencies and start the server
 ```
 cd client
 npm install
-npm start
+npm run dev
 ```
 
 ## Contribution
