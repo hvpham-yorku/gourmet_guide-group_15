@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    padding: 0 15px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: black;
+}
+
+input[type="search"] {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.recommendations {
+    position: relative;
+}
+
+.recipe-list {
+    display: flex;
+    overflow-x: auto;
+}
+
+.recipe-card {
+    flex: 0 0 auto;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.scroll-button.left {
+    left: 10px;
+}
+
+.scroll-button.right {
+    right: 10px;
+}
