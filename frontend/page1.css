@@ -1,7 +1,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fff; 
+    background-color: #886e7e; 
     color: #333;
     margin: 0;
     padding: 0;
@@ -75,6 +75,7 @@ main h1 {
 }
 .recipe-card {
     position: relative;
+    cursor: pointer;
     flex: none;
     width: 300px;
     height: 200px; 

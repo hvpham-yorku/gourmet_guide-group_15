@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Interface with Improved Navigation</title>
+  <link rel="stylesheet" href="search1style.css">
+</head>
+<body>
+  <div class="search-container">
+    <div class="input-group">
+      <input type="text" id="search-bar" placeholder="Search for food...">
+      <button onclick="initiateSearch()">Search</button>
+    </div>
+    <div class="results-container" id="results-container">
+      <!-- Dynamic results will be displayed here -->
+    </div>
+    <div class="result-info" id="result-info"></div>
+    <div class="navigation">
+      <button id="prev-btn" onclick="slideResult(-1)">&#10094;</button>
+      <button id="next-btn" onclick="slideResult(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+    const results = [
+      { name: "Pizza", category: "Fast Food" },
+      { name: "Sushi", category: "Japanese" },
+      { name: "Ice Cream", category: "Dessert" }
+    ];
+    let currentIndex = 0;
+
+    function initiateSearch() {
+      const searchBar = document.getElementById('search-bar');
+      if (searchBar.value) {
+        displayResult(currentIndex);
+        document.getElementById('results-container').style.display = 'block';
+        document.getElementById('result-info').style.display = 'block';
+        document.querySelector('.navigation').style.display = 'block';
+        updateResultInfo();
+      } else {
+        document.getElementById('results-container').style.display = 'none';
+        document.getElementById('result-info').style.display = 'none';
+        document.querySelector('.navigation').style.display = 'none';
+      }
+    }
+
+    function displayResult(index) {
+      const resultsContainer = document.getElementById('results-container');
+      resultsContainer.innerHTML = `
+        <div class="result-item">
+          <div class="food-name">${results[index].name}</div>
+          <div class="food-category">Category: ${results[index].category}</div>
+        </div>
+      `;
+      updateResultInfo();
+    }
+
+    function updateResultInfo() {
+      const resultInfo = document.getElementById('result-info');
+      resultInfo.innerHTML = `Result ${currentIndex + 1} of ${results.length}`;
+    }
+
+    function slideResult(direction) {
+      currentIndex += direction;
+      if (currentIndex >= results.length) {
+        currentIndex = 0;
+      } else if (currentIndex < 0) {
+        currentIndex = results.length - 1;
+      }
+      displayResult(currentIndex);
+    }
+  </script>
+</body>
+</html>
