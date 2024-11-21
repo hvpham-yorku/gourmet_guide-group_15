@@ -26,9 +26,9 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-right">
-    <li> 
-        <a href="/cart">Login</a>
-    </li>
+    <a href="/cart" className='login-button'>
+      Sign in
+    </a>
     <a href="/profile" className="cart-icon">
       <i className="fas fa-shopping-cart"></i>
       <span className="cart-count">90</span>

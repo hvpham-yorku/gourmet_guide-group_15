@@ -36,15 +36,18 @@
 }
 
 .navbar-center .nav-links a {
-    color: #f9aa33; /* Match the logo color */
+    color: #ffffff; /* Match the logo color */
     text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar-center .nav-links a:hover {
-    color: #fff; /* Highlight on hover */
+    background-color: rgb(255, 255, 255);
+    color: #000000; /* Highlight on hover */
     transform: scale(1.1); /* Subtle zoom effect */
 }
 
@@ -54,6 +57,23 @@
     display: flex;
     align-items: center;
     gap: 1rem; /* Space between icons */
+}
+
+.navbar-right .login-button{
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar-right .login-button:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000000; /* Highlight on hover */
+    transform: scale(1.1); /* Subtle zoom effect */
 }
 
 .navbar-right .cart-icon,
