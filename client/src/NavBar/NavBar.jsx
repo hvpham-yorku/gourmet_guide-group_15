@@ -26,7 +26,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-right">
-    <a href="/cart" className="cart-icon">
+    <li> 
+        <a href="/cart">Login</a>
+    </li>
+    <a href="/profile" className="cart-icon">
       <i className="fas fa-shopping-cart"></i>
       <span className="cart-count">90</span>
     </a>
