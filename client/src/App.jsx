@@ -1,4 +1,5 @@
 import RecipeSearchEngine from "@/components/RecipeSearchEngine";
+import SearchInterface from "./components/SearchInterface";
 import RecipesDatabase from "./components/RecipesDataBase";
 import AIRecipes from "./components/AIRecipes";
 import Profile from "./components/Profile";
@@ -13,7 +14,7 @@ function App() {
 		<NavBar/>
 		<div>
     <Routes>        
-      <Route path="/search"  element={<RecipeSearchEngine/>} />
+      <Route path="/search"  element={<SearchInterface/>} />
 	  <Route path="/database"  element={<RecipesDatabase/>} />
 	  <Route path="/AI"  element={<AIRecipes/>} />
 	  <Route path="/cart"  element={<Profile/>} />
