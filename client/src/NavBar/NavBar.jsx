@@ -1,19 +1,18 @@
 import React from 'react';
 import './Navbar.css';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
   return (
 
 <nav className="navbar">
 <div className="navbar-left">
-    <a href="/" className="logo">
-      ShopNow
-    </a>
+<Link to="/search">Search</Link>
   </div>
   <div className="navbar-center">
     <ul className="nav-links">
       <li>
-        <a href="/products">Products</a>
+        <a href="/search">Search</a>
       </li>
       <li>
         <a href="/about">About Us</a>
