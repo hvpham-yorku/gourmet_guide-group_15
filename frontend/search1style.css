@@ -36,6 +36,7 @@ body {
     background-color: #007BFF;
     color: white;
     cursor: pointer;
+    align-self: center;
   }
   
   .results-container {

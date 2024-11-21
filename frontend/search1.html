@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search Interface with Improved Navigation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="search1style.css">
 </head>
 <body>
   <div class="search-container">
     <div class="input-group">
       <input type="text" id="search-bar" placeholder="Search for food...">
-      <button onclick="initiateSearch()">Search</button>
+
+      <button onclick="initiateSearch()"><span class="material-symbols-outlined">search</span></button>
     </div>
-    <div class="results-container" id="results-container">
-  
-    </div>
+    <div class="results-container" id="results-container"></div>
     <div class="result-info" id="result-info"></div>
     <div class="navigation">
       <button id="prev-btn" onclick="slideResult(-1)">&#10094;</button>
