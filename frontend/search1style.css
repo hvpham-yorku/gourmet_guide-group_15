@@ -23,7 +23,7 @@ body {
   #search-bar {
     width: 80%;
     padding: 10px;
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px 8px 8px 8px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -52,18 +52,18 @@ body {
   }
   
   .result-info {
-    display: none; /* Initially hidden, shown on search */
+    display: none; 
     position: absolute;
-    top: 110px; /* Positioned between the result and the buttons */
+    top: 110px; 
     width: 100%;
     text-align: center;
     padding: 10px 0;
   }
   
   .navigation {
-    display: none; /* Initially hidden, shown on search */
+    display: none;
     position: absolute;
-    top: 140px; /* Positioned right below the result info */
+    top: 140px; 
     width: 100%;
     justify-content: space-between;
     padding: 10px 0;
