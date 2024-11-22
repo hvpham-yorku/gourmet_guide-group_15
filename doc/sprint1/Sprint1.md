@@ -35,10 +35,10 @@ For each user story, break down tasks:
 * User Story 1:  
   * Task 1: Recipe search engine  
   * Task 2: Filter by ingredients  
-  * Task 2: Filter by cuisine type  
-  * Task 2: Categories for browsing  
-  * Task 2: Filter by preparation time  
-  * Task 2: Search based on ingredient availability  
+  * Task 3: Filter by cuisine type  
+  * Task 4: Categories for browsing  
+  * Task 5: Filter by preparation time  
+  * Task 6: Search based on ingredient availability  
 * User Story 2:  
   * Task 1: Filter by dietary restrictions  
   * Task 2: Integrate into recipe search engine
