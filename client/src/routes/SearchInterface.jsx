@@ -1,10 +1,9 @@
 import { useState } from "react";
-import "./styles/SearchInterface.css";
+import "@/styles/SearchInterface.css";
 
 // Dynamically load Material Symbols
 const MaterialSymbolsLink = document.createElement("link");
-MaterialSymbolsLink.href =
-	"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined";
+MaterialSymbolsLink.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined";
 MaterialSymbolsLink.rel = "stylesheet";
 document.head.appendChild(MaterialSymbolsLink);
 
@@ -27,7 +26,7 @@ const SearchInterface = () => {
 		}
 	};
 
-	const slideResult = (direction) => {
+	const slideResult = direction => {
 		let newIndex = currentIndex + direction;
 		if (newIndex >= results.length) {
 			newIndex = 0;
@@ -46,15 +45,10 @@ const SearchInterface = () => {
 						className="search-interface-bar"
 						placeholder="Search for food..."
 						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
+						onChange={e => setSearchTerm(e.target.value)}
 					/>
-					<button
-						className="search-interface-button"
-						onClick={initiateSearch}
-					>
-						<span className="material-symbols-outlined">
-							search
-						</span>
+					<button className="search-interface-button" onClick={initiateSearch}>
+						<span className="material-symbols-outlined">search</span>
 					</button>
 				</div>
 
@@ -62,28 +56,18 @@ const SearchInterface = () => {
 					<>
 						<div className="search-interface-results-container">
 							<div className="search-interface-result-item">
-								<div className="search-interface-food-name">
-									{results[currentIndex].name}
-								</div>
-								<div className="search-interface-food-category">
-									Category: {results[currentIndex].category}
-								</div>
+								<div className="search-interface-food-name">{results[currentIndex].name}</div>
+								<div className="search-interface-food-category">Category: {results[currentIndex].category}</div>
 							</div>
 						</div>
 						<div className="search-interface-result-info">
 							Result {currentIndex + 1} of {results.length}
 						</div>
 						<div className="search-interface-navigation">
-							<button
-								className="search-interface-nav-button"
-								onClick={() => slideResult(-1)}
-							>
+							<button className="search-interface-nav-button" onClick={() => slideResult(-1)}>
 								&#10094;
 							</button>
-							<button
-								className="search-interface-nav-button"
-								onClick={() => slideResult(1)}
-							>
+							<button className="search-interface-nav-button" onClick={() => slideResult(1)}>
 								&#10095;
 							</button>
 						</div>

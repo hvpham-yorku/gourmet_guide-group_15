@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 
 import SearchInterface from "./routes/SearchInterface";
-import RecipesDatabase from "./components/RecipesDataBase";
+import RecipesDatabase from "./routes/RecipesDatabase";
 import AIRecipes from "./routes/AIRecipes";
 import Profile from "./routes/Profile";
-import HomePage from "./routes/HomePage";
+import Home from "./routes/Home";
 import NavBar from "./Navbar";
 
 import "./App.css";
@@ -15,12 +15,13 @@ function App() {
 			<NavBar />
 			<div>
 				<Routes>
+					<Route path="/" element={<Home />} />
+					{/* <Route path="/home" element={<Home />} /> */}
 					<Route path="/search" element={<SearchInterface />} />
 					<Route path="/database" element={<RecipesDatabase />} />
-					<Route path="/AI" element={<AIRecipes />} />
+					<Route path="/ai" element={<AIRecipes />} />
 					<Route path="/cart" element={<Profile />} />
 					<Route path="/profile" element={<Profile />} />
-					<Route path="/Home" element={<HomePage />} />
 				</Routes>
 			</div>
 		</>

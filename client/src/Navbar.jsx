@@ -4,12 +4,13 @@ const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<div className="navbar-left">
-				<a href="/home">Home Icon</a>
+				<a href="/">Home Icon</a>
 			</div>
 			<div className="navbar-center">
 				<ul className="nav-links">
+					{/* probably delete if we wanna keep icon goes to home */}
 					<li>
-						<a href="/home">Home</a>
+						<a href="/">Home</a>
 					</li>
 					<li>
 						<a href="/search">Search</a>

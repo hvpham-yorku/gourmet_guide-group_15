@@ -1,14 +1,11 @@
-import "./styles/HomePage.css";
+import "@/styles/Home.css";
 
-const GourmetGuide = () => {
+const Home = () => {
 	return (
 		<>
 			<main>
 				<h1>Gourmet Guide</h1>
-				<input
-					type="search"
-					placeholder="Search for your next recipe..."
-				/>
+				<input type="search" placeholder="Search for your next recipe..." />
 				<section className="recommendations">
 					<h2>What we think you might like...</h2>
 					<div className="recipe-list">
@@ -28,4 +25,4 @@ const GourmetGuide = () => {
 	);
 };
 
-export default GourmetGuide;
+export default Home;
