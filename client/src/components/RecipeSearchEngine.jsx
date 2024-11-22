@@ -10,14 +10,9 @@ function RecipeSearchEngine() {
 
 	return (
 		<>
-			<input
-				type="text"
-				value={query}
-				onChange={(e) => setQuery(e.target.value)}
-				placeholder="Search for your next recipe..."
-			></input>
+			<input type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search for your next recipe..."></input>
 
-			<RecipeSearchResultView data={debouncedQuery} />
+			<RecipeSearchResultView query={debouncedQuery} />
 		</>
 	);
 }

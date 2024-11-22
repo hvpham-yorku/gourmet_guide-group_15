@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "NodeNext",
+		"target": "ES2022",
+		"moduleResolution": "nodenext",
+		"lib": ["ES2022"]
+	},
+	"exclude": [
+		"node_modules",
+		"**/node_modules/*",
+		"dist",
+		"build"
+	]
+}
