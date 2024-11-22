@@ -5,14 +5,14 @@ const recipeApi = axios.create({ baseURL: "https://www.themealdb.com/api/json/v1
 
 const router = Router();
 
-router.use("/", (req, res, next) => {
-	res.paginate = data => {
-		// TODO: implement function that paginates json
-		return data;
-	};
+// router.use("/", (req, res, next) => {
+// 	res.paginate = data => {
+// 		// TODO: implement function that paginates json
+// 		return data;
+// 	};
 
-	next();
-});
+// 	next();
+// });
 
 router.route("/").get(async (req, res) => {
 	const recipeResponse = await recipeApi.request({
@@ -22,8 +22,8 @@ router.route("/").get(async (req, res) => {
 		},
 	});
 
-	const response = res.paginate(recipeResponse.data);
-	res.json(response);
+	// const response = res.paginate(recipeResponse.data);
+	res.status(200).json(recipeResponse.data);
 });
 
 router.route("/:query").get(async (req, res) => {
@@ -34,8 +34,9 @@ router.route("/:query").get(async (req, res) => {
 		},
 	});
 
-	const response = res.paginate(recipeResponse.data);
-	res.json(response);
+	// const response = res.paginate(recipeResponse.data);
+	console.log(JSON.stringify(recipeResponse.data));
+	res.status(200).json(recipeResponse.data);
 });
 
 export default router;

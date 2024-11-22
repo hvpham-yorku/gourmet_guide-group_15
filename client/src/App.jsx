@@ -14,8 +14,9 @@ function App() {
 			<div>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					{/* <Route path="/home" element={<Home />} /> */}
-					<Route path="/search" element={<SearchInterface />} />
+					{/* maybe remove home and search interface for redundancy */}
+					<Route path="/home" element={<Home />} />
+					<Route path="/advanced" element={<SearchInterface />} />
 					<Route path="/database" element={<RecipesDatabase />} />
 					<Route path="/ai" element={<AIRecipes />} />
 					<Route path="/cart" element={<Profile />} />

@@ -1,3 +1,5 @@
+import RecipeSearchEngine from "@/components/RecipeSearchEngine";
+
 import "@/styles/Home.css";
 
 const Home = () => {
@@ -5,7 +7,7 @@ const Home = () => {
 		<>
 			<main>
 				<h1>Gourmet Guide</h1>
-				<input type="search" placeholder="Search for your next recipe..." />
+				<RecipeSearchEngine />
 				<section className="recommendations">
 					<h2>What we think you might like...</h2>
 					<div className="recipe-list">
