@@ -6,7 +6,7 @@ Gourmet Guide is a platform designed for food lovers, home cooks, and profession
 Our objective is to build a recipe web app that users can use to search for the recipe of their next meal. It will have a database that contains recommended and well-reviewed/curated/reputable recipes and will allow users to search for specific recipes using filters such as by main ingredient, by cuisine, and by dietary restrictions. The application will also integrate YouTube videos into our web app, allowing people to find videos showcasing recipes related to their search and recommended channels.
 
 ## Installation
-Create a `/server/.env` file and with the following environment variables:
+Create `/server/.env` file and with the following environment variables:
 ```
 MONGODB_URI=mongodb://localhost:27017/
 SERVER_PORT=5000
@@ -25,7 +25,7 @@ Install frontend dependencies and start the server
 ```
 cd client
 npm install
-npm run dev
+npm start
 ```
 
 ## Contribution
