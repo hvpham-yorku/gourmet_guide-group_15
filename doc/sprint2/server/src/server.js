@@ -8,7 +8,7 @@ import recipeRouter from "./routes/api/recipes.js";
 
 console.log(process.cwd());
 
-config({ path: `./../.env` });
+config();
 
 const app = express();
 

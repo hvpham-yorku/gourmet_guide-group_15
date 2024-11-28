@@ -20,7 +20,7 @@ cd gourmet_guide-group_15
 Create `.env` files within the client and server directories using the provided `.env.example` files as a template, and populate the variables to match your configuration
 
 ```bash
-# Edit the created files after running the following commands
+# Edit the created files after running the following commands if needed
 cp client/.env.example client/.env
 cp server/.env.example server/.env
 ```
