@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import { Route, Routes } from "react-router-dom";
 
 import SearchInterface from "./routes/SearchInterface";
