@@ -5,6 +5,7 @@ const recipeApi = axios.create({
 	headers: {
 		"Content-Type": "application/json",
 	},
+	timeout: 1000,
 });
 
 // export const getAllRecipes = async () => {
