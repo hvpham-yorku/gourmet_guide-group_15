@@ -43,24 +43,10 @@ router.use("/", (req, res, next) => {
 });
 
 router.route("/").get(async (req, res) => {
-	console.log(req.query.query);
 	const recipeResponse = await recipeApi.request({
 		url: "/search.php",
 		params: {
 			s: req.query.query ?? "",
-		},
-	});
-
-	// const paginatedData = res.paginate(recipeResponse.data);
-	console.log(recipeResponse.data.meals.length);
-	res.status(200).json(recipeResponse.data);
-});
-
-router.route("/:query").get(async (req, res) => {
-	const recipeResponse = await recipeApi.request({
-		url: "/search.php",
-		params: {
-			s: req.params.query,
 		},
 	});
 
