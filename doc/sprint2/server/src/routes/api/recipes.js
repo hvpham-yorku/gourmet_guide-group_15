@@ -8,7 +8,7 @@ const router = Router();
 router.use("/", (req, res, next) => {
 	res.paginate = data => {
 		const displayLimit = parseInt(req.query.limit) || 3;
-		if (data.meals.length > displayLimit) {
+		if (data.meals?.length > displayLimit) {
 			const page = parseInt(req.query.page) || 1;
 
 			const start = (page - 1) * displayLimit;
