@@ -20,4 +20,4 @@ const recipeApi = axios.create({
 //  */
 // axios.interceptors.response.use(Promise.resolve, Promise.reject);
 
-export const getRecipeQuery = async query => await recipeApi.request({ url: `/${query}` });
+export const getRecipeQuery = async (query, page, limit = 3) => await recipeApi.request({ params: { query, page, limit } });
