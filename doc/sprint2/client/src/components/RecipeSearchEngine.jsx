@@ -16,6 +16,7 @@ function RecipeSearchEngine() {
 				value={query}
 				onChange={e => setQuery(e.target.value)}
 				placeholder="Search for your next recipe..."
+				autoFocus
 			></input>
 
 			<RecipeSearchResultView query={debouncedQuery} />
