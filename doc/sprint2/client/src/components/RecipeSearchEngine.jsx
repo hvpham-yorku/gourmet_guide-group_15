@@ -10,7 +10,7 @@ function RecipeSearchEngine() {
 	const debouncedQuery = useDebounce(query);
 
 	return (
-		<>
+		<div className="searchEngineContainer">
 			<input
 				type="search"
 				value={query}
@@ -20,7 +20,7 @@ function RecipeSearchEngine() {
 			></input>
 
 			<RecipeSearchResultView query={debouncedQuery} />
-		</>
+		</div>
 	);
 }
 

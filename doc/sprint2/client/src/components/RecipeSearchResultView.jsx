@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { getRecipeQuery } from "@/api/recipeApi";
 
-import "@/styles/SearchInterface.css";
+import OpenNew from "@/assets/OpenInNew.svg?react";
+import "@/styles/RecipeSearchResultView.css";
+import { Link } from "react-router-dom";
 
 function RecipeSearchResultView({ query }) {
 	const [searchResults, setSearchResults] = useState({});
@@ -28,15 +30,13 @@ function RecipeSearchResultView({ query }) {
 			return;
 		}
 
-		console.log("ran");
-
 		const pageKey = `${query}_${currentPage}`;
 		const cachedPage = recipePagesCache.current.get(pageKey);
 		if (cachedPage) {
 			setSearchResults(cachedPage);
 			return;
 		}
-		console.log("ran2");
+
 		const fetchData = async () => {
 			setSearchLoading(true);
 			try {
@@ -59,49 +59,46 @@ function RecipeSearchResultView({ query }) {
 	}, [query, currentPage]);
 
 	return (
-		<div>
+		<>
 			{searchLoading && <p>Loading...</p>}
 			{searchError && <p style={{ color: "red", whiteSpace: "pre-line" }}>{searchError}</p>}
 			{searchResults.meals?.length > 0 && (
-				<div className="search-interface-results-container">
+				<div className="search-results-container">
 					{searchResults.meals.map(meal => (
-						<div key={meal.idMeal} className="search-interface-result-item">
-							<div className="search-interface-food-name">
-								<img src={meal.strMealThumb} title={meal.strMeal} alt={meal.strMeal} width={128} height={128} />{" "}
-								{meal.strMeal}
+						<Link key={meal.idMeal} style={{ color: "inherit", textDecoration: "inherit" }} to={`/meals/${meal.idMeal}`}>
+							<div className="search-result-item">
+								<img src={meal.strMealThumb} title={meal.strMeal} alt={meal.strMeal} width={96} height={96} />
+								<div className="search-result-title">{meal.strMeal}</div>
+								{/* <div className="search-result-subtitle">{meal.strArea}</div> */}
+								<OpenNew className="search-result-open" />
+								<div className="search-result-category">Category: {meal.strCategory}</div>
 							</div>
-							<div className="search-interface-food-category">Category: {meal.strCategory}</div>
-						</div>
+						</Link>
 					))}
 					{searchResults.paginationData && (
-						<div className="search-interface-result-info">
-							<div className="search-interface-navigation">
-								{/* // TODO: Add onClick event that checks cache for previous or next page
-									and if it doesnt exist, then make a new api request for previous or next page
-									then add it to cache (probably localStorage or redis, not sure yet) */}
-								<button
-									className="search-interface-nav-button"
-									disabled={searchResults.paginationData.currentPage <= 1}
-									hidden={searchResults.paginationData.currentPage <= 1}
-									onClick={() => setCurrentPage(searchResults.paginationData.currentPage - 1)}
-								>
-									&#10094;
-								</button>
-								{searchResults.paginationData.currentPage} / {searchResults.paginationData.totalPages}
-								<button
-									className="search-interface-nav-button"
-									disabled={searchResults.paginationData.currentPage >= searchResults.paginationData.totalPages}
-									hidden={searchResults.paginationData.currentPage >= searchResults.paginationData.totalPages}
-									onClick={() => setCurrentPage(searchResults.paginationData.currentPage + 1)}
-								>
-									&#10095;
-								</button>
-							</div>
+						<div className="search-result-nav">
+							<button
+								className="search-result-nav-button"
+								disabled={searchResults.paginationData.currentPage <= 1}
+								hidden={searchResults.paginationData.currentPage <= 1}
+								onClick={() => setCurrentPage(searchResults.paginationData.currentPage - 1)}
+							>
+								&#10094;
+							</button>
+							{searchResults.paginationData.currentPage} / {searchResults.paginationData.totalPages}
+							<button
+								className="search-result-nav-button"
+								disabled={searchResults.paginationData.currentPage >= searchResults.paginationData.totalPages}
+								hidden={searchResults.paginationData.currentPage >= searchResults.paginationData.totalPages}
+								onClick={() => setCurrentPage(searchResults.paginationData.currentPage + 1)}
+							>
+								&#10095;
+							</button>
 						</div>
 					)}
 				</div>
 			)}
-		</div>
+		</>
 	);
 }
 

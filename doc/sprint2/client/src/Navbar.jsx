@@ -6,7 +6,7 @@ const Navbar = () => {
 		<nav className="navbar">
 			<div className="navbar-left">
 				<a title="Home" href="/">
-					<Chef height={128} width={128} />
+					<Chef height={74} width={74} />
 				</a>
 			</div>
 			<div className="navbar-center">

@@ -99,7 +99,7 @@
 
 /* Navigation Buttons */
 .search-interface-navigation {
-    display: flexbox;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;

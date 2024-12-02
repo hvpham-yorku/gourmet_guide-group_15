@@ -40,7 +40,7 @@ main h1 {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
+    margin: 100px auto 0px;
     max-width: 80%;
 }
 
@@ -109,7 +109,6 @@ main h1 {
     right: -20px;
 }
 
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;

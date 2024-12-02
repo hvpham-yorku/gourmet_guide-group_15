@@ -27,8 +27,8 @@
     display: inline-block;
     overflow: hidden;
     border-radius: 100%;
-    height: 128px;
-    width: 128px;
+    height: 74px;
+    width: 74px;
     background-color: #d1d1d1;
     position: relative;
     border-color: #000000;
@@ -65,7 +65,7 @@
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.3s ease;
 }
