@@ -66,3 +66,47 @@ body {
     background-color: #ffffff;
     color: #000000;
 }
+
+.response {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fffef0; /* Light beige, like cookbook pages */
+    border: 2px solid #e0c097; /* Light brown, giving a classic book feel */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-family: 'Georgia', serif; /* Classic serif font for elegance */
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+/* Decorative spine on the left to resemble a book */
+.response::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, #d4a373, #b68652); /* Faux leather spine */
+    border-radius: 10px 0 0 10px;
+}
+
+/* Header Styling */
+.response h3 {
+    margin-top: 0;
+    color: #b45f06; /* Warm brown for a classic touch */
+    font-size: 1.5rem;
+    border-bottom: 1px solid #e0c097; /* Underline for emphasis */
+    padding-bottom: 5px;
+}
+
+/* Paragraph Styling */
+.response p {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.8; /* Nice spacing for readability */
+    color: #4d4d4d;
+}

@@ -18,11 +18,15 @@ router.post('/ask', async (req, res) => {
         });
 
         const botResponse = response.choices[0].message.content;
+        console.log(botResponse)
         res.json({ response: botResponse });
     } catch (error) {
         console.error("OpenAI API Error:", error.response?.data || error.message);
         res.status(500).json({ error: 'Failed to fetch response from AI.' });
     }
 });
+
+
+
 
 export default router;
