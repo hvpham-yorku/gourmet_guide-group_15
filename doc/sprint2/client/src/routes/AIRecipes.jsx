@@ -1,18 +1,49 @@
-import "@/styles/AIRecipes.css";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const AIRecipes = () => {
-	return (
-		<>
-			<main>
-				<section className="hero">
-					<h1>Welcome to AI Chef</h1>
-					<p>Let our AI create the perfect recipe just for you!</p>
-					<input type="text" placeholder="Enter ingredients or cuisine..." className="recipe-input" />
-					<button className="generate-button">Generate Recipe</button>
-				</section>
-			</main>
-		</>
-	);
+    const [query, setQuery] = useState('');
+    const [response, setResponse] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try {
+            const res = await axios.post('http://localhost:3000/api/AIRecipes/ask', { query });;
+            setResponse(res.data.response);
+        } catch (error) {
+            console.error(error);
+            setResponse('Error contacting the bot.');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    return (
+        <div>
+            <h1>Recipe ChatBot</h1>
+            <form onSubmit={handleSubmit}>
+                <textarea
+                    placeholder="Ask for a recipe..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    rows="5"
+                    cols="50"
+                />
+                <br />
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? 'Loading...' : 'Ask'}
+                </button>
+            </form>
+            {response && (
+                <div>
+                    <h3>Response:</h3>
+                    <p>{response}</p>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default AIRecipes;
