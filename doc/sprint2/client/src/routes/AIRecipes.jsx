@@ -20,7 +20,7 @@ const AIRecipes = () => {
         setIsLoading(true);
         try {
 
-			const fullQuery = `${query}. Make it a recipe in as few words as possible.`;
+			const fullQuery = `${query}Make it a recipe.Be as consice as possible without losing info`;
 
             const res = await axios.post('http://localhost:3000/api/AIRecipes/ask', { query: fullQuery });
             setResponse(res.data.response);
