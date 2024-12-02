@@ -18,7 +18,10 @@ const AIRecipes = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            const res = await axios.post('http://localhost:3000/api/AIRecipes/ask', { query });
+
+			const fullQuery = `${query}. Make it a recipe in as few words as possible.`;
+
+            const res = await axios.post('http://localhost:3000/api/AIRecipes/ask', { query: fullQuery });
             setResponse(res.data.response);
 
             const parsed = parseRecipeResponse(res.data.response); // Parse the response
