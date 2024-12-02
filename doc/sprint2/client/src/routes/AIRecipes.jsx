@@ -13,6 +13,7 @@ const AIRecipes = () => {
     const [response, setResponse] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [parsedRecipe, setParsedRecipe] = useState(null); // Initialize parsedRecipe as state
+	const maxCharacters = 100;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,6 +35,11 @@ const AIRecipes = () => {
         }
     };
 
+	const handleInputChange = (e) => {
+        // Limit input length to maxCharacters
+        setQuery(e.target.value.slice(0, maxCharacters));
+    };
+
     return (
         <div>
             <div className="hero">
@@ -43,9 +49,9 @@ const AIRecipes = () => {
                 </p>
                 <form onSubmit={handleSubmit}>
                     <textarea
-                        placeholder="Ask for a recipe..."
+                        placeholder="Enter your recipe request (max 100 characters)."
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={handleInputChange}
                         rows="5"
                         cols="50"
                     />
