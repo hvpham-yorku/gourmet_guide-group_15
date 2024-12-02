@@ -21,6 +21,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 .hero h1 {
     color: #fff;
     font-size: 2.5rem;
@@ -49,7 +50,7 @@ body {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-.generate-button {
+.submitbutton {
     background-color: #344955;
     color: #ffffff;
     padding: 0.8rem 1.5rem;
@@ -61,7 +62,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.generate-button:hover {
+.submitbutton:hover {
     background-color: #ffffff;
     color: #000000;
 }

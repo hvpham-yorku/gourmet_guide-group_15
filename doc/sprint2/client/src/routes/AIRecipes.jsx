@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "@/styles/AIRecipes.css";
 
 const AIRecipes = () => {
     const [query, setQuery] = useState('');
@@ -21,8 +22,10 @@ const AIRecipes = () => {
     };
 
     return (
-        <div>
-            <h1>Recipe ChatBot</h1>
+		<div>
+        <div className='hero'>
+            <h1 className='title'>Gourmet Assistant</h1>
+			<p className='description'> Let our AI create the perfect recipe just for you! </p>
             <form onSubmit={handleSubmit}>
                 <textarea
                     placeholder="Ask for a recipe..."
@@ -32,10 +35,11 @@ const AIRecipes = () => {
                     cols="50"
                 />
                 <br />
-                <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Loading...' : 'Ask'}
+                <button className="submitbutton" type="submit" disabled={isLoading}>
+                    {isLoading ? 'Loading...' : 'Enter'}
                 </button>
             </form>
+		</div>
             {response && (
                 <div>
                     <h3>Response:</h3>
