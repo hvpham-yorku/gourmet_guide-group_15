@@ -119,7 +119,7 @@ body {
 
 .dropdown {
     margin-bottom: 1rem;
-    text-align: left;
+    text-align: center;
 }
 
 .dropdown label {
@@ -149,7 +149,29 @@ body {
 
 .ingredients-input {
     margin-top: 0.5rem;
-    width: 100%;
+    width: 25%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Flexbox container for dietary and ingredients fields */
+.form-row {
+    display: flex;
+    justify-content: space-between; /* Space between the dropdowns */
+    gap: 20px; /* Add some spacing between elements */
+    margin-bottom: 1rem;
+}
+
+/* Adjust dropdown and input widths for side-by-side alignment */
+.form-row .dropdown {
+    flex: 1; /* Take equal space */
+}
+
+.dropdown select,
+.dropdown input {
+    width: 75%; /* Ensure full width inside the container */
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ddd;

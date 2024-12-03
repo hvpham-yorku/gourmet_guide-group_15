@@ -95,53 +95,53 @@ const AIRecipes = () => {
             />
             <br />
 
-            {/* Dropdown for Dietary Restrictions */}
-            <div className="dropdown">
-                <label htmlFor="dietary">Dietary Restrictions:</label>
-                <select
-                    id="dietary"
-                    value={dietaryRestriction}
-                    onChange={(e) => setDietaryRestriction(e.target.value)}
-                >
-                    <option value="">Select...</option>
-                    <option value="non-veg">Non-Veg</option>
-                    <option value="halal">Halal</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="other">Other</option>
-                </select>
+            {/* Flexbox container for dietary restrictions and ingredients */}
+            <div className="form-row">
+                {/* Dropdown for Dietary Restrictions */}
+                <div className="dropdown">
+                    <label htmlFor="dietary">Dietary Restrictions:</label>
+                    <select
+                        id="dietary"
+                        value={dietaryRestriction}
+                        onChange={(e) => setDietaryRestriction(e.target.value)}
+                    >
+                        <option value="">Select...</option>
+                        <option value="non-veg">Non-Veg</option>
+                        <option value="halal">Halal</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="other">Other</option>
+                    </select>
+                    {dietaryRestriction === "other" && (
+                        <input
+                            type="text"
+                            placeholder="Please specify"
+                            value={otherDietary}
+                            onChange={(e) => setOtherDietary(e.target.value)}
+                            className="other-input"
+                        />
+                    )}
+                </div>
 
-                {/* Show input box if "Other" is selected */}
-                {dietaryRestriction === "other" && (
+                {/* Ingredients to Avoid Input */}
+                <div className="dropdown">
+                    <label htmlFor="ingredients">Ingredients to Avoid:</label>
                     <input
                         type="text"
-                        placeholder="Please specify"
-                        value={otherDietary}
-                        onChange={(e) => setOtherDietary(e.target.value)}
-                        className="other-input"
+                        placeholder="separated by commas"
+                        value={ingredientsToAvoid}
+                        onChange={(e) => setIngredientsToAvoid(e.target.value)}
+                        className="ingredients-input"
                     />
-                )}
-            </div>
-            <br />
-
-            {/* Dropdown for Ingredients to Avoid */}
-            <div className="dropdown">
-                <label htmlFor="ingredients">Ingredients to Avoid:</label>
-                <input
-                    type="text"
-                    placeholder="Enter ingredients to avoid, separated by commas"
-                    value={ingredientsToAvoid}
-                    onChange={(e) => setIngredientsToAvoid(e.target.value)}
-                    className="ingredients-input"
-                />
+                </div>
             </div>
             <br />
 
             <button className="submitbutton" type="submit" disabled={isLoading}>
                 {isLoading ? "Loading..." : "Enter"}
             </button>
-       		 </form>
-    		</div>
+        </form>
+    </div>
 			{parsedRecipe && (
     <div className="response">
         <h3>Your Recipe:</h3>
