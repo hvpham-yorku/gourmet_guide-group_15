@@ -1,10 +1,13 @@
 import "./styles/Navbar.css";
+import Chef from "@/assets/Chef.svg?react";
 
 const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<div className="navbar-left">
-				<a href="/">Home Icon</a>
+				<a title="Home" href="/">
+					<Chef height={74} width={74} />
+				</a>
 			</div>
 			<div className="navbar-center">
 				<ul className="nav-links">
@@ -16,7 +19,7 @@ const Navbar = () => {
 						<a href="/advanced">Advanced Search</a>
 					</li>
 					<li>
-						<a href="/database">Recipes</a>
+						<a href="/recipes">Recipes</a>
 					</li>
 					<li>
 						<a href="/ai">AI Chef</a>
