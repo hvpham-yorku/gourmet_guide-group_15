@@ -2,8 +2,29 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import "@/styles/AIRecipes.css";
 
-const parseRecipeResponse = responseText => {
-	return responseText.split("\n").filter(line => line.trim() !== ""); // Split by newlines and remove empty lines
+const parseRecipeResponse = (responseText) => {
+    const parsedRecipe = {
+        ingredients: [],
+        instructions: [],
+    };
+
+    // Split response into lines and categorize them
+    const lines = responseText.split("\n").filter(line => line.trim() !== "");
+
+    let currentSection = ""; // Track whether we're in "Ingredients" or "Instructions"
+    lines.forEach((line) => {
+        if (line.toLowerCase().includes("ingredients")) {
+            currentSection = "ingredients";
+        } else if (line.toLowerCase().includes("instructions")) {
+            currentSection = "instructions";
+        } else if (currentSection === "ingredients") {
+            parsedRecipe.ingredients.push(line.trim());
+        } else if (currentSection === "instructions") {
+            parsedRecipe.instructions.push(line.trim());
+        }
+    });
+
+    return parsedRecipe;
 };
 
 const AIRecipes = () => {
@@ -69,15 +90,34 @@ const AIRecipes = () => {
 				</form>
 			</div>
 			{parsedRecipe && (
-				<div className="response">
-					<h3>Recipe Output:</h3>
-					<ul>
-						{parsedRecipe.map((line, index) => (
-							<li key={index}>{line}</li>
-						))}
-					</ul>
-				</div>
-			)}
+    <div className="response">
+        <h3>Your Recipe:</h3>
+        
+        {/* Ingredients Section */}
+        {parsedRecipe.ingredients.length > 0 && (
+            <div className="recipe-section">
+                <h4>Required Ingredients:</h4>
+                <ul>
+                    {parsedRecipe.ingredients.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+            </div>
+        )}
+
+        {/* Instructions Section */}
+        {parsedRecipe.instructions.length > 0 && (
+            <div className="recipe-section">
+                <h4>Instructions:</h4>
+                <ul>
+                    {parsedRecipe.instructions.map((step, index) => (
+                        <li key={index}>{step}</li>
+                    ))}
+                </ul>
+            </div>
+        )}
+    </div>
+)}
 
 			{!isLoading && !parsedRecipe && response && <p>{response}</p>}
 		</div>
