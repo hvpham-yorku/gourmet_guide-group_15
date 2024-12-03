@@ -35,6 +35,7 @@ const AIRecipes = () => {
 	const [dietaryRestriction, setDietaryRestriction] = useState(""); // Dietary restriction dropdown
 	const [otherDietary, setOtherDietary] = useState(""); // "Other" input box
 	const [ingredientsToAvoid, setIngredientsToAvoid] = useState(""); // Ingredients to avoid input
+	const [history, setHistory] = useState([]); // State to store interaction history
 
 	const prevQuery = useRef(query);
 
@@ -60,6 +61,12 @@ const AIRecipes = () => {
 				setResponse(res.data.response);
 
 				const parsed = parseRecipeResponse(res.data.response); // Parse the response
+
+				setHistory((prevHistory) => [
+					...prevHistory,
+					{ query: query, response: res.data.response },
+				]);
+
 				setParsedRecipe(parsed); // Update parsedRecipe state
 			} catch (error) {
 				console.error(error);
@@ -171,6 +178,20 @@ const AIRecipes = () => {
         )}
     </div>
 )}
+
+ {/* Display Interaction History */}
+ {history.length > 0 && (
+                <div className="history">
+                    <h3>Interaction History:</h3>
+                    {history.map((entry, index) => (
+                        <div key={index} className="history-entry">
+                            <p><strong>Query:</strong> {entry.query}</p>
+                            <p><strong>Response:</strong> {entry.response}</p>
+                            <hr />
+                        </div>
+                    ))}
+                </div>
+            )}
 
 			{!isLoading && !parsedRecipe && response && <p>{response}</p>}
 		</div>
