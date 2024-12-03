@@ -46,15 +46,16 @@ const AIRecipes = () => {
 			prevQuery.current = query;
 			setIsLoading(true);
 
-			try {
-
-				
-				const dietaryInfo =
+			const dietaryInfo =
         			dietaryRestriction === "other" ? otherDietary : dietaryRestriction;
 
    				 // Add everything to the query
     			const fullQuery = `${query}. Make it a recipe, be consice without losing info. Dietary Restrictions: ${dietaryInfo}. Avoid ingredients: ${ingredientsToAvoid}.`;
 
+
+			try {
+
+			
 				const res = await axios.post("http://localhost:3000/api/AIRecipes/ask", { query: fullQuery });
 				setResponse(res.data.response);
 
