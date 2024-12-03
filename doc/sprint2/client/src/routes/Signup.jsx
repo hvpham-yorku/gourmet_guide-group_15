@@ -34,7 +34,7 @@ const Signup = () => {
 		e.preventDefault();
 		try {
 			const { data } = await axios.post(
-				process.env.VITE_SERVER_BASE_URL + "/signup",
+				"http://localhost:3000/signup",
 				{
 					...inputValue,
 				},

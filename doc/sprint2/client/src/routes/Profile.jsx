@@ -15,7 +15,7 @@ const Profile = () => {
 			if (!cookies.token) {
 				navigate("/login");
 			}
-			const { data } = await axios.post(process.env.VITE_SERVER_BASE_URL, {}, { withCredentials: true });
+			const { data } = await axios.post("http://localhost:3000", {}, { withCredentials: true });
 			const { status, user } = data;
 			setUsername(user);
 			return status
