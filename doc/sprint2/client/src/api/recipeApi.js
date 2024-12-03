@@ -5,6 +5,7 @@ const recipeApi = axios.create({
 	headers: {
 		"Content-Type": "application/json",
 	},
+	timeout: 1000,
 });
 
 // export const getAllRecipes = async () => {
@@ -13,10 +14,6 @@ const recipeApi = axios.create({
 // 	} catch (err) {}
 // };
 
-// /*
-//  * TODO: maybe implement pagination here instead of on backend
-//  * (probably better to do it on server so each page can fetch a new page from backend)
-//  */
 // axios.interceptors.response.use(Promise.resolve, Promise.reject);
 
-export const getRecipeQuery = async query => await recipeApi.request({ url: `/${query}` });
+export const getRecipeQuery = async (query, page = 1, limit = 3) => await recipeApi.request({ params: { query, page, limit } });

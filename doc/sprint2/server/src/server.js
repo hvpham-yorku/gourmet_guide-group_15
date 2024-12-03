@@ -17,8 +17,8 @@ app.use(express.json());
 
 app.use("/api/recipes", recipeRouter);
 
-connect(process.env.MONGODB_URI)
-	.then(() => console.log("Connected to MongoDB"))
-	.catch(err => console.error("Connection to MongoDB errored with:", err));
+// connect(process.env.MONGODB_URI)
+// 	.then(() => console.log("Connected to MongoDB"))
+// 	.catch(err => console.error("Connection to MongoDB errored with:", err));
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Server sucessfully running on http://localhost:${process.env.SERVER_PORT}`));

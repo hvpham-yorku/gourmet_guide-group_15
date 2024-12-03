@@ -15,8 +15,8 @@ const Home = () => {
 						<div className="recipe-card">Recipe 1</div>
 						<div className="recipe-card">Recipe 2</div>
 						<div className="recipe-card">Recipe 3</div>
-						<button className="scroll-button left">&lt;</button>
-						<button className="scroll-button right">&gt;</button>
+						{/* <button className="scroll-button left">&lt;</button> */}
+						{/* <button className="scroll-button right">&gt;</button> */}
 					</div>
 				</section>
 			</main>
