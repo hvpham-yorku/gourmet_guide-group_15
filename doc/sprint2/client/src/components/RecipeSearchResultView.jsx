@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { getRecipeQuery } from "@/api/recipeApi";
 
 import OpenNew from "@/assets/OpenInNew.svg?react";
+
 import "@/styles/RecipeSearchResultView.css";
-import { Link } from "react-router-dom";
 
 function RecipeSearchResultView({ query }) {
 	const [searchResults, setSearchResults] = useState({});
@@ -65,14 +66,8 @@ function RecipeSearchResultView({ query }) {
 			{searchResults.meals?.length > 0 && (
 				<div className="search-results-container">
 					{searchResults.meals.map(meal => (
-						<Link key={meal.idMeal} style={{ color: "inherit", textDecoration: "inherit" }} to={`/meals/${meal.idMeal}`}>
-							<div className="search-result-item">
-								<img src={meal.strMealThumb} title={meal.strMeal} alt={meal.strMeal} width={96} height={96} />
-								<div className="search-result-title">{meal.strMeal}</div>
-								{/* <div className="search-result-subtitle">{meal.strArea}</div> */}
-								<OpenNew className="search-result-open" />
-								<div className="search-result-category">Category: {meal.strCategory}</div>
-							</div>
+						<Link key={meal.idMeal} style={{ color: "inherit", textDecoration: "inherit" }} to={`/recipes/${meal.idMeal}`}>
+							<SearchResultItem meal={meal} />
 						</Link>
 					))}
 					{searchResults.paginationData && (
@@ -99,6 +94,18 @@ function RecipeSearchResultView({ query }) {
 				</div>
 			)}
 		</>
+	);
+}
+
+function SearchResultItem({ meal }) {
+	return (
+		<div className="search-result-item">
+			<img src={meal.strMealThumb} title={meal.strMeal} alt={meal.strMeal} width={96} height={96} />
+			<div className="search-result-title">{meal.strMeal}</div>
+			<div className="search-result-cuisine">{meal.strArea}</div>
+			<OpenNew className="search-result-open" />
+			<div className="search-result-category">Category: {meal.strCategory}</div>
+		</div>
 	);
 }
 

@@ -12,8 +12,13 @@
 
 .search-result-item {
     display: grid;
-    grid-template-columns: 96px 1fr 2fr;
+    grid-template-columns: 96px max-content 1fr; /* grid-template-columns: 96px 1fr; */
     grid-template-rows: auto;
+    grid-template-areas: 
+        "image  title       .   cuisine open" 
+        "image  category    .   .   ." 
+        "image  .           .   .   ." 
+        "image  .           .   .   .";
     gap: 12px 16px;
     padding: 16px;
     margin: 15px;
@@ -27,44 +32,34 @@
 }
 
 .search-result-item:hover {
-	border-color: #344955;
+    border-color: #344955;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .search-result-item img {
-    grid-row: span 4;
-	grid-column: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-area: image;
     border-radius: 10px;
 }
 
 .search-result-title {
+    grid-area: title;
     font-weight: bold;
     font-size: 1.75rem;
     max-height: 25px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    grid-column: 2;
-    grid-row: 1;
+    justify-self: start;
 }
 
-.search-result-subtitle {
+.search-result-cuisine {
+    grid-area: cuisine;
     color: #555;
-    display: flex;
-    justify-content: flex-start;
-    grid-column: 3;
-    grid-row: 1;
+    align-self: center;
+    justify-self: end;
 }
 
 .search-result-open {
+    grid-area: open;
     width: 32px;
     height: 32px;
-    grid-column: 4;
-    grid-row: 1;
-    display: flex;
 	transition: border-radius 0.2s ease, background-color 0.2s ease;
 }
 
@@ -74,12 +69,10 @@
 }
 
 .search-result-category {
+    grid-area: category;
     font-size: 0.9rem;
     color: #555;
-    display: flex;
-    justify-content: flex-start;
-    grid-column: 2;
-    grid-row: 2;
+    justify-self: start;
 }
 
 .search-result-nav {

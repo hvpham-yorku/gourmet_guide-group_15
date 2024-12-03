@@ -19,7 +19,7 @@ const Navbar = () => {
 						<a href="/advanced">Advanced Search</a>
 					</li>
 					<li>
-						<a href="/database">Recipes</a>
+						<a href="/recipes">Recipes</a>
 					</li>
 					<li>
 						<a href="/ai">AI Chef</a>
