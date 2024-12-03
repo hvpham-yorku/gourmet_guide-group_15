@@ -32,6 +32,9 @@ const AIRecipes = () => {
 	const [response, setResponse] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 	const [parsedRecipe, setParsedRecipe] = useState(null); // Initialize parsedRecipe as state
+	const [dietaryRestriction, setDietaryRestriction] = useState(""); // Dietary restriction dropdown
+	const [otherDietary, setOtherDietary] = useState(""); // "Other" input box
+	const [ingredientsToAvoid, setIngredientsToAvoid] = useState(""); // Ingredients to avoid input
 
 	const prevQuery = useRef(query);
 
@@ -44,7 +47,13 @@ const AIRecipes = () => {
 			setIsLoading(true);
 
 			try {
-				const fullQuery = `${query}Make it a recipe.Be as consice as possible without losing info`;
+
+				
+				const dietaryInfo =
+        			dietaryRestriction === "other" ? otherDietary : dietaryRestriction;
+
+   				 // Add everything to the query
+    			const fullQuery = `${query}. Make it a recipe, be consice without losing info. Dietary Restrictions: ${dietaryInfo}. Avoid ingredients: ${ingredientsToAvoid}.`;
 
 				const res = await axios.post("http://localhost:3000/api/AIRecipes/ask", { query: fullQuery });
 				setResponse(res.data.response);
@@ -72,23 +81,66 @@ const AIRecipes = () => {
 
 	return (
 		<div>
-			<div className="hero">
-				<h1 className="title">Gourmet Assistant</h1>
-				<p className="description">Let our AI create the perfect recipe just for you!</p>
-				<form className="prompt" onSubmit={handleSubmit}>
-					<textarea
-						placeholder="Enter your recipe request (max 100 characters)."
-						value={query}
-						onChange={handleInputChange}
-						rows="5"
-						cols="50"
-					/>
-					<br />
-					<button className="submitbutton" type="submit" disabled={isLoading}>
-						{isLoading ? "Loading..." : "Enter"}
-					</button>
-				</form>
-			</div>
+		<div className="hero">
+        <h1 className="title">Gourmet Assistant</h1>
+        <p className="description">Let our AI create the perfect recipe just for you!</p>
+        <form className="prompt" onSubmit={handleSubmit}>
+            <textarea
+                placeholder="Enter your recipe request (max 100 characters)."
+                value={query}
+                onChange={handleInputChange}
+                rows="5"
+                cols="50"
+            />
+            <br />
+
+            {/* Dropdown for Dietary Restrictions */}
+            <div className="dropdown">
+                <label htmlFor="dietary">Dietary Restrictions:</label>
+                <select
+                    id="dietary"
+                    value={dietaryRestriction}
+                    onChange={(e) => setDietaryRestriction(e.target.value)}
+                >
+                    <option value="">Select...</option>
+                    <option value="non-veg">Non-Veg</option>
+                    <option value="halal">Halal</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="other">Other</option>
+                </select>
+
+                {/* Show input box if "Other" is selected */}
+                {dietaryRestriction === "other" && (
+                    <input
+                        type="text"
+                        placeholder="Please specify"
+                        value={otherDietary}
+                        onChange={(e) => setOtherDietary(e.target.value)}
+                        className="other-input"
+                    />
+                )}
+            </div>
+            <br />
+
+            {/* Dropdown for Ingredients to Avoid */}
+            <div className="dropdown">
+                <label htmlFor="ingredients">Ingredients to Avoid:</label>
+                <input
+                    type="text"
+                    placeholder="Enter ingredients to avoid, separated by commas"
+                    value={ingredientsToAvoid}
+                    onChange={(e) => setIngredientsToAvoid(e.target.value)}
+                    className="ingredients-input"
+                />
+            </div>
+            <br />
+
+            <button className="submitbutton" type="submit" disabled={isLoading}>
+                {isLoading ? "Loading..." : "Enter"}
+            </button>
+       		 </form>
+    		</div>
 			{parsedRecipe && (
     <div className="response">
         <h3>Your Recipe:</h3>
