@@ -15,7 +15,7 @@ const parseRecipeResponse = (responseText) => {
     lines.forEach((line) => {
         if (line.toLowerCase().includes("ingredients")) {
             currentSection = "ingredients";
-        } else if (line.toLowerCase().includes("instructions")) {
+        } else if (line.toLowerCase().includes("instructions")|| line.toLowerCase().includes("steps")) {
             currentSection = "instructions";
         } else if (currentSection === "ingredients") {
             parsedRecipe.ingredients.push(line.trim());
