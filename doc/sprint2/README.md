@@ -120,7 +120,7 @@ Both the frontend and backend development servers should now be available at the
 
 MongoDB
 
-Running the following command will make MongoDB available at `mongodb://localhost:27017/`
+Running the `mongod.exe` will make MongoDB available to connect to, you can run the `.exe` through the following command
 
 ```bash
 path/to/mongod.exe

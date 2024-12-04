@@ -108,7 +108,7 @@ const AIRecipes = () => {
 					<p className="description">Let our AI create the perfect recipe just for you!</p>
 					<form className="prompt" onSubmit={handleSubmit}>
 						<textarea
-							placeholder="Enter your recipe request (max 100 characters)."
+							placeholder="Enter your recipe request (max 100 characters)"
 							value={query}
 							onChange={handleInputChange}
 							rows="5"
@@ -132,7 +132,7 @@ const AIRecipes = () => {
 								{dietaryRestriction === "other" && (
 									<input
 										type="text"
-										placeholder="Please specify"
+										placeholder="Please specify here"
 										value={otherDietary}
 										onChange={e => setOtherDietary(e.target.value)}
 										className="other-input"
@@ -200,11 +200,11 @@ const AIRecipes = () => {
 						{parsedRecipe.instructions.length > 0 && (
 							<div className="recipe-section">
 								<h4>Instructions:</h4>
-								<ul>
+								<ol>
 									{parsedRecipe.instructions.map((step, index) => (
 										<li key={index}>{step}</li>
 									))}
-								</ul>
+								</ol>
 							</div>
 						)}
 					</div>

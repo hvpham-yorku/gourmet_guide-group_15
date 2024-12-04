@@ -71,7 +71,10 @@ function RecipeSearchResultView({ query }) {
 		<>
 			{searchLoading && <SpinLoader />}
 			{searchError && (
-				<p className="search-results-container" style={{ padding: "5px 0px", color: "red", whiteSpace: "pre-line" }}>
+				<p
+					className="search-results-container"
+					style={{ textAlign: "center", padding: "5px 0px", color: "red", whiteSpace: "pre-line" }}
+				>
 					{searchError}
 				</p>
 			)}

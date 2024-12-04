@@ -16,13 +16,7 @@ config();
 
 const app = express();
 
-app.use(
-	cors({
-		origin: [`http://localhost:${process.env.SERVER_PORT}`],
-		methods: ["GET", "POST", "PUT", "DELETE"],
-		credentials: true,
-	})
-);
+app.use(cors());
 app.use(express.json());
 
 app.use(cookieParser());
@@ -36,5 +30,3 @@ app.use("/api/AIRecipes", AIRecipesRouter);
 // 	.catch(err => console.error("Connection to MongoDB errored with:", err));
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Server sucessfully running on http://localhost:${process.env.SERVER_PORT}`));
-
-
