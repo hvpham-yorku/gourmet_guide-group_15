@@ -5,6 +5,7 @@ import express from "express";
 import cors from "cors";
 
 import recipeRouter from "./routes/api/recipes.js";
+import AIRecipesRouter from "./routes/api/AIRecipes.js";
 
 console.log(process.cwd());
 
@@ -16,9 +17,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/recipes", recipeRouter);
+app.use("/api/AIRecipes", AIRecipesRouter);
 
 // connect(process.env.MONGODB_URI)
 // 	.then(() => console.log("Connected to MongoDB"))
 // 	.catch(err => console.error("Connection to MongoDB errored with:", err));
 
 app.listen(process.env.SERVER_PORT, () => console.log(`Server sucessfully running on http://localhost:${process.env.SERVER_PORT}`));
+
+
