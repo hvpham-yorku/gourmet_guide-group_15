@@ -31,7 +31,7 @@ const parseRecipeResponse = responseText => {
 				const sectionSplit = listRemovedLine.split(":");
 				parsedRecipe.sections.push(`${sectionSplit[0]}:`);
 				parsedRecipe.ingredients.push(`<section${parsedRecipe.sections.length - 1}/>`);
-				console.log(parsedRecipe.sections[parsedRecipe.sections.length - 1].includes("\n"));
+
 				if (sectionSplit[1]?.length > 0) {
 					parsedRecipe.ingredients.push(sectionSplit[1]);
 				}
