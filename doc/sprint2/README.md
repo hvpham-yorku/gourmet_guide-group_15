@@ -41,7 +41,7 @@ cd server # Assumes you're in project root directory
 npm install
 ```
 
-Install and Setup MongoDB
+**Install and Setup MongoDB**
 
 If you do not have MongoDB installed on your computer https://www.mongodb.com/docs/manual/installation/ follow this guide.
 
