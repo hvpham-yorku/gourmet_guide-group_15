@@ -1,8 +1,6 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
@@ -13,12 +11,14 @@ body {
 /* Hero Section */
 .hero {
     padding: 3rem 1rem;
+    width: 50%;
     background-color: #344955;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 8px; /* border-radius: 0px 8px 8px 0px; */
     margin: 2rem auto;
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    align-content: center;
 }
 
 
@@ -118,13 +118,12 @@ body {
 }
 
 .dropdown {
-    margin-bottom: 1rem;
     text-align: center;
 }
 
 .dropdown label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-top: 1rem;
     font-weight: bold;
 }
 
@@ -139,9 +138,6 @@ body {
 }
 
 .other-input {
-    margin-top: 0.5rem;
-    width: 100%;
-    padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
