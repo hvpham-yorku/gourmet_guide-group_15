@@ -17,7 +17,7 @@ const app = express();
 
 app.use(
 	cors({
-		origin: ["http://localhost:3000"],
+		origin: [`http://localhost:${process.env.SERVER_PORT}`],
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		credentials: true,
 	})
@@ -29,10 +29,7 @@ app.use("/", authRoute);
 
 app.use("/api/recipes", recipeRouter);
 
-connect(process.env.MONGODB_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-})
+connect(process.env.MONGODB_URI)
 	.then(() => console.log("Connected to MongoDB"))
 	.catch(err => console.error("Connection to MongoDB errored with:", err));
 
