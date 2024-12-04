@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import "@/styles/AIRecipes.css";
 import Chef from "@/assets/Chef.svg?react";
+import SpinLoader from "@/components/SpinLoader";
 
 const parseRecipeResponse = responseText => {
 	const parsedRecipe = {
@@ -163,6 +164,7 @@ const AIRecipes = () => {
 
 			{/* Right Section: Output and History */}
 			<div className="right-section">
+				{isLoading && <SpinLoader />}
 				{parsedRecipe && (
 					<div className="response">
 						<h3>{parsedRecipe.recipeName ?? "Your Recipe"}</h3>
