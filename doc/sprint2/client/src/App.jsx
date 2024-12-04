@@ -7,6 +7,8 @@ import AIRecipes from "./routes/AIRecipes";
 import Profile from "./routes/Profile";
 import Home from "./routes/Home";
 import NavBar from "./Navbar";
+import Login from "./routes/Login";
+import Signup from "./routes/Signup";
 
 function App() {
 	return (
@@ -21,6 +23,8 @@ function App() {
 				<Route path="/advanced" element={<SearchInterface />} />
 				<Route path="/ai" element={<AIRecipes />} />
 				<Route path="/profile" element={<Profile />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
 			</Routes>
 		</BrowserRouter>
 	);
