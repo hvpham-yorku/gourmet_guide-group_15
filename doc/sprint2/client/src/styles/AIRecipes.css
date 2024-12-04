@@ -1,224 +1,181 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+/* General Layout */
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 100vh; /* Full height layout */
+}
+
+/* Left Section */
+.left-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #344955; /* Base color */
+    background-size: cover;
+    background-repeat: repeat;
+    color: white;
+    border-radius: 0px;
     text-align: center;
 }
 
-
-/* Hero Section */
-.hero {
-    padding: 3rem 1rem;
-    background-color: #344955;
-    color: #fff;
-    border-radius: 8px;
-    margin: 2rem auto;
-    max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.hero a {
+    display: inline-block; /* Ensures it's treated as a block element */
+    margin-top: 100px; /* Adds spacing below the Chef icon */
+    transition: transform 0.3s ease; /* Smooth animation on hover */
 }
 
-
-.hero h1 {
-    color: #fff;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.hero a:hover {
+    transform: scale(1.1); /* Slightly enlarges the Chef icon on hover */
+    cursor: pointer; /* Changes the cursor to indicate interactivity */
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 75px;
 }
 
-.recipe-input {
-    width: 80%;
-    max-width: 500px;
-    padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    border: 2px solid #344955;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.3s ease;
+/* Form Layout */
+.prompt {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
 }
 
-.recipe-input:focus {
-    border-color: #c0392b;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-
-.submitbutton {
-    background-color: #344955;
-    color: #ffffff;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.submitbutton:hover {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-.response {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fffef0; /* Light beige, like cookbook pages */
-    border: 2px solid #e0c097; /* Light brown, giving a classic book feel */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    font-family: 'Georgia', serif; /* Classic serif font for elegance */
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}
-
-/* Decorative spine on the left to resemble a book */
-.response::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -10px;
-    bottom: 0;
-    width: 5px;
-    background: linear-gradient(to bottom, #d4a373, #b68652); /* Faux leather spine */
-    border-radius: 10px 0 0 10px;
-}
-
-/* Header Styling */
-.response h3 {
-    margin-top: 0;
-    color: #b45f06; /* Warm brown for a classic touch */
-    font-size: 1.5rem;
-    border-bottom: 1px solid #e0c097; /* Underline for emphasis */
-    padding-bottom: 5px;
-}
-
-/* Paragraph Styling */
-.response p {
-    margin: 10px 0;
-    font-size: 1rem;
-    line-height: 1.8; /* Nice spacing for readability */
-    color: #4d4d4d;
-}
-
-.prompt textarea {
-    border-radius: 10px;
-    padding: 10px;
-    height: 15px;
+.form-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
 }
 
 .dropdown {
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.dropdown label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-.dropdown select,
-.dropdown input {
-    width: 25%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-top: 0.5rem;
-}
-
-.other-input {
-    margin-top: 0.5rem;
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.ingredients-input {
-    margin-top: 0.5rem;
-    width: 25%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-/* Flexbox container for dietary and ingredients fields */
-.form-row {
+    flex: 1;
     display: flex;
-    justify-content: space-between; /* Space between the dropdowns */
-    gap: 20px; /* Add some spacing between elements */
-    margin-bottom: 1rem;
-}
-
-/* Adjust dropdown and input widths for side-by-side alignment */
-.form-row .dropdown {
-    flex: 1; /* Take equal space */
+    flex-direction: column;
 }
 
 .dropdown select,
 .dropdown input {
-    width: 75%; /* Ensure full width inside the container */
-    padding: 0.5rem;
+    padding: 10px;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
+/* Submit Button */
+.submitbutton {
+    padding: 10px;
+    font-size: 1rem;
+    color: #344955;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+}
 
+.submitbutton:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Right Section */
+.right-section {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.response {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* History and Response Headers */
+.response h3, .history h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Lists */
+.response ul, .response li,
+.history-entry p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section, .right-section {
+        flex: unset;
+        width: 100%;
+    }
+}
 .history {
     margin-top: 20px;
     padding: 20px;
-    background-color: #fffef0; /* Light beige, like cookbook pages */
-    border: 2px solid #e0c097; /* Light brown, giving a classic book feel */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    font-family: 'Georgia', serif; /* Classic serif font for elegance */
-    text-align: left;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    overflow: hidden; /* Hide overflowing content */
 }
 
-/* Decorative spine on the left to resemble a book */
-.history::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -10px;
-    bottom: 0;
-    width: 5px;
-    background: linear-gradient(to bottom, #d4a373, #b68652); /* Faux leather spine */
-    border-radius: 10px 0 0 10px;
+/* Slider container */
+.history-slider {
+    display: flex; /* Flexbox for horizontal layout */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 20px; /* Space between entries */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    padding-bottom: 10px;
 }
 
-/* Header Styling */
-.history h3 {
-    margin-top: 0;
-    color: #b45f06; /* Warm brown for a classic touch */
-    font-size: 1.5rem;
-    border-bottom: 1px solid #e0c097; /* Underline for emphasis */
-    padding-bottom: 5px;
+/* Individual history entries */
+.history-entry {
+    min-width: 200px; /* Adjust to make entries narrower */
+    max-width: 1000px; /* Limit the maximum width */
+    height: auto; /* Allow the height to adjust dynamically */
+    flex-shrink: 0; /* Prevent shrinking */
+    background-color: #fff;
+    padding: 20px; /* Increase padding for better spacing */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    justify-content: space-between; /* Space out content vertically */
 }
 
-/* Paragraph Styling */
 .history-entry p {
-    margin: 10px 0;
-    font-size: 1rem;
-    line-height: 1.8; /* Nice spacing for readability */
-    color: #4d4d4d;
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Add a horizontal scrollbar for large datasets */
+.history-slider::-webkit-scrollbar {
+    height: 8px;
+}
+
+.history-slider::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.history-slider::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
 }

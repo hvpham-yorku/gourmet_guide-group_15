@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import "@/styles/AIRecipes.css";
+import Chef from "@/assets/Chef.svg?react";
 
 const parseRecipeResponse = (responseText) => {
     const parsedRecipe = {
@@ -88,114 +89,127 @@ const AIRecipes = () => {
 	};
 
 	return (
-		<div>
-		<div className="hero">
-        <h1 className="title">Gourmet Assistant</h1>
-        <p className="description">Let our AI create the perfect recipe just for you!</p>
-        <form className="prompt" onSubmit={handleSubmit}>
-            <textarea
-                placeholder="Enter your recipe request (max 100 characters)."
-                value={query}
-                onChange={handleInputChange}
-                rows="5"
-                cols="50"
-            />
-            <br />
-
-            {/* Flexbox container for dietary restrictions and ingredients */}
-            <div className="form-row">
-                {/* Dropdown for Dietary Restrictions */}
-                <div className="dropdown">
-                    <label htmlFor="dietary">Dietary Restrictions:</label>
-                    <select
-                        id="dietary"
-                        value={dietaryRestriction}
-                        onChange={(e) => setDietaryRestriction(e.target.value)}
-                    >
-                        <option value="">Select...</option>
-                        <option value="non-veg">Non-Veg</option>
-                        <option value="halal">Halal</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="vegetarian">Vegetarian</option>
-                        <option value="other">Other</option>
-                    </select>
-                    {dietaryRestriction === "other" && (
-                        <input
-                            type="text"
-                            placeholder="Please specify"
-                            value={otherDietary}
-                            onChange={(e) => setOtherDietary(e.target.value)}
-                            className="other-input"
-                        />
-                    )}
-                </div>
-
-                {/* Ingredients to Avoid Input */}
-                <div className="dropdown">
-                    <label htmlFor="ingredients">Ingredients to Avoid:</label>
-                    <input
-                        type="text"
-                        placeholder="separated by commas"
-                        value={ingredientsToAvoid}
-                        onChange={(e) => setIngredientsToAvoid(e.target.value)}
-                        className="ingredients-input"
-                    />
-                </div>
-            </div>
-            <br />
-
-            <button className="submitbutton" type="submit" disabled={isLoading}>
-                {isLoading ? "Loading..." : "Enter"}
-            </button>
-        </form>
-    </div>
-			{parsedRecipe && (
-    <div className="response">
-        <h3>Your Recipe:</h3>
-        
-        {/* Ingredients Section */}
-        {parsedRecipe.ingredients.length > 0 && (
-            <div className="recipe-section">
-                <h4>Required Ingredients:</h4>
-                <ul>
-                    {parsedRecipe.ingredients.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul>
-            </div>
-        )}
-
-        {/* Instructions Section */}
-        {parsedRecipe.instructions.length > 0 && (
-            <div className="recipe-section">
-                <h4>Instructions:</h4>
-                <ul>
-                    {parsedRecipe.instructions.map((step, index) => (
-                        <li key={index}>{step}</li>
-                    ))}
-                </ul>
-            </div>
-        )}
-    </div>
-)}
-
- {/* Display Interaction History */}
- {history.length > 0 && (
-                <div className="history">
-                    <h3>Interaction History:</h3>
-                    {history.map((entry, index) => (
-                        <div key={index} className="history-entry">
-                            <p><strong>Query:</strong> {entry.query}</p>
-                            <p><strong>Response:</strong> {entry.response}</p>
-                            <hr />
-                        </div>
-                    ))}
-                </div>
-            )}
-
-			{!isLoading && !parsedRecipe && response && <p>{response}</p>}
+		<div className="container">
+			{/* Left Section: Input Form */}
+			<div className="left-section">
+				<div className="hero">
+				<a>
+					<Chef height={100} width={100} />
+				</a>
+					<h1 className="title">Gourmet Assistant</h1>
+					<p className="description">Let our AI create the perfect recipe just for you!</p>
+					<form className="prompt" onSubmit={handleSubmit}>
+						<textarea
+							placeholder="Enter your recipe request (max 100 characters)."
+							value={query}
+							onChange={handleInputChange}
+							rows="5"
+							cols="50"
+						/>
+						<br />
+	
+						{/* Flexbox container for dietary restrictions and ingredients */}
+						<div className="form-row">
+							{/* Dropdown for Dietary Restrictions */}
+							<div className="dropdown">
+								<label htmlFor="dietary">Dietary Restrictions:</label>
+								<select
+									id="dietary"
+									value={dietaryRestriction}
+									onChange={(e) => setDietaryRestriction(e.target.value)}
+								>
+									<option value="">Select...</option>
+									<option value="non-veg">Non-Veg</option>
+									<option value="halal">Halal</option>
+									<option value="vegan">Vegan</option>
+									<option value="vegetarian">Vegetarian</option>
+									<option value="other">Other</option>
+								</select>
+								{dietaryRestriction === "other" && (
+									<input
+										type="text"
+										placeholder="Please specify"
+										value={otherDietary}
+										onChange={(e) => setOtherDietary(e.target.value)}
+										className="other-input"
+									/>
+								)}
+							</div>
+	
+							{/* Ingredients to Avoid Input */}
+							<div className="dropdown">
+								<label htmlFor="ingredients">Ingredients to Avoid:</label>
+								<input
+									type="text"
+									placeholder="separated by commas"
+									value={ingredientsToAvoid}
+									onChange={(e) => setIngredientsToAvoid(e.target.value)}
+									className="ingredients-input"
+								/>
+							</div>
+						</div>
+						<br />
+	
+						<button className="submitbutton" type="submit" disabled={isLoading}>
+							{isLoading ? "Loading..." : "Enter"}
+						</button>
+					</form>
+				</div>
+			</div>
+	
+			{/* Right Section: Output and History */}
+			<div className="right-section">
+				{parsedRecipe && (
+					<div className="response">
+						<h3>Your Recipe:</h3>
+	
+						{/* Ingredients Section */}
+						{parsedRecipe.ingredients.length > 0 && (
+							<div className="recipe-section">
+								<h4>Required Ingredients:</h4>
+								<ul>
+									{parsedRecipe.ingredients.map((item, index) => (
+										<li key={index}>{item}</li>
+									))}
+								</ul>
+							</div>
+						)}
+	
+						{/* Instructions Section */}
+						{parsedRecipe.instructions.length > 0 && (
+							<div className="recipe-section">
+								<h4>Instructions:</h4>
+								<ul>
+									{parsedRecipe.instructions.map((step, index) => (
+										<li key={index}>{step}</li>
+									))}
+								</ul>
+							</div>
+						)}
+					</div>
+				)}
+	
+				{/* Interaction History */}
+				{history.length > 0 && (
+					<div className="history">
+						<h3>Interaction History:</h3>
+						<div className="history-slider">
+						{history.map((entry, index) => (
+							<div key={index} className="history-entry">
+								<p><strong>Query:</strong> {entry.query}</p>
+								<p><strong>Response:</strong> {entry.response}</p>
+								<hr />
+							</div>
+						))}
+						</div>
+					</div>
+				)}
+	
+				{!isLoading && !parsedRecipe && response && <p>{response}</p>}
+			</div>
 		</div>
 	);
+	
 };
 
 export default AIRecipes;
