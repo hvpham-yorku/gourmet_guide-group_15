@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import SearchInterface from "./routes/SearchInterface";
-import RecipesDatabase from "./routes/RecipesDatabase";
+import Recipes from "./routes/Recipes";
 import Recipe from "./components/Recipe";
 import AIRecipes from "./routes/AIRecipes";
 import Profile from "./routes/Profile";
@@ -16,7 +16,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				{/* maybe remove home and search interface for redundancy */}
 				<Route path="/home" element={<Home />} />
-				<Route path="/recipes" element={<RecipesDatabase />} />
+				<Route path="/recipes" element={<Recipes />} />
 				<Route path="/recipes/:recipeId" element={<Recipe />} />
 				<Route path="/advanced" element={<SearchInterface />} />
 				<Route path="/ai" element={<AIRecipes />} />
