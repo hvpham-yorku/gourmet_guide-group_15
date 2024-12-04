@@ -103,7 +103,7 @@
 .navbar-right .user-icon {
 	color: #fff;
 	text-decoration: none;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	position: relative;
 	transition: color 0.3s ease, transform 0.3s ease;
 	cursor: pointer;
