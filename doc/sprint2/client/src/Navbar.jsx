@@ -27,15 +27,15 @@ const Navbar = () => {
 				</ul>
 			</div>
 			<div className="navbar-right">
-				<a href="/cart" className="login-button">
+				<a href="/login" className="login-button">
 					Sign in
 				</a>
-				<a href="/profile" className="cart-icon">
+				{/* <a href="/profile" className="cart-icon">
 					<i className="fas fa-shopping-cart"></i>
 					<span className="cart-count">90</span>
-				</a>
-				<a href="/account" className="user-icon">
-					<i className="fas fa-user"></i>
+				</a> */}
+				<a href="/profile" className="user-icon">
+					Profile
 				</a>
 			</div>
 		</nav>

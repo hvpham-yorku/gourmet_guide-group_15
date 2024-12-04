@@ -6,6 +6,7 @@ import { getRecipeQuery } from "@/api/recipeApi";
 import OpenNew from "@/assets/OpenInNew.svg?react";
 
 import "@/styles/RecipeSearchResultView.css";
+import SpinLoader from "./SpinLoader";
 
 function RecipeSearchResultView({ query }) {
 	const [searchResults, setSearchResults] = useState({});
@@ -26,6 +27,8 @@ function RecipeSearchResultView({ query }) {
 			return;
 		}
 
+		previousQuery.current = query;
+
 		if (query.length === 0) {
 			setSearchResults({});
 			return;
@@ -42,14 +45,19 @@ function RecipeSearchResultView({ query }) {
 			setSearchLoading(true);
 			try {
 				const res = await getRecipeQuery(query, currentPage);
-				setSearchResults(res.data);
+				console.log(res.data);
+				if (res.data.meals === null || res.data.meals.length === 0) {
+					setSearchError("No results were found");
+				} else {
+					setSearchResults(res.data);
 
-				if (recipePagesCache.current.size + 1 > MAX_CACHE_SIZE) {
-					recipePagesCache.current.delete(recipePagesCache.current.keys().next().value);
+					if (recipePagesCache.current.size + 1 > MAX_CACHE_SIZE) {
+						recipePagesCache.current.delete(recipePagesCache.current.keys().next().value);
+					}
+					recipePagesCache.current.set(pageKey, res.data);
 				}
-				recipePagesCache.current.set(pageKey, res.data);
-				previousQuery.current = query;
 			} catch (err) {
+				console.log(err);
 				setSearchError(`Recipe fetch failed (Status Code: ${err.response.status} ${err.response.statusText})`);
 			} finally {
 				setSearchLoading(false);
@@ -61,8 +69,15 @@ function RecipeSearchResultView({ query }) {
 
 	return (
 		<>
-			{searchLoading && <p>Loading...</p>}
-			{searchError && <p style={{ color: "red", whiteSpace: "pre-line" }}>{searchError}</p>}
+			{searchLoading && <SpinLoader />}
+			{searchError && (
+				<p
+					className="search-results-container"
+					style={{ textAlign: "center", padding: "5px 0px", color: "red", whiteSpace: "pre-line" }}
+				>
+					{searchError}
+				</p>
+			)}
 			{searchResults.meals?.length > 0 && (
 				<div className="search-results-container">
 					{searchResults.meals.map(meal => (
