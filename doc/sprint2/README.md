@@ -120,11 +120,13 @@ Both the frontend and backend development servers should now be available at the
 
 MongoDB
 
-Running the `mongod.exe` will make MongoDB available to connect to, you can run the `.exe` through the following command
+Running the `mongod.exe` will make MongoDB available to connect to, you can run the `.exe` through the following command:
 
 ```bash
 path/to/mongod.exe
 ```
+
+If the above command does not work, please see the [MongoDB installation tutorial](https://www.mongodb.com/docs/manual/installation/) specific to your operating system. Instructions on how to run your specific installation of MongoDB will be listed there.
 
 ## Contribution
 

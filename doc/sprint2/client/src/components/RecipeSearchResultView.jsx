@@ -45,7 +45,6 @@ function RecipeSearchResultView({ query }) {
 			setSearchLoading(true);
 			try {
 				const res = await getRecipeQuery(query, currentPage);
-				console.log(res.data);
 				if (res.data.meals === null || res.data.meals.length === 0) {
 					setSearchError("No results were found");
 				} else {
