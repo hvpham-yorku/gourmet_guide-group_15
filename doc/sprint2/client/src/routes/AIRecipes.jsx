@@ -16,7 +16,7 @@ const parseRecipeResponse = responseText => {
 
 	let currentSection = ""; // Track whether we're in "Ingredients" or "Instructions"
 	lines.forEach(line => {
-		const listRemovedLine = line.replace(/^-?\s*(?:\d?[.)])?\s*-?/, "");
+		const listRemovedLine = line.replace(/^-?\s*(?:\d+[.)])?\s*-?/, "");
 
 		const lowerCaseLine = listRemovedLine.toLowerCase();
 		if (lowerCaseLine.includes("recipe") || lowerCaseLine.includes("name")) {

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-// import "@/styles/UserAuth.css";
+import "@/styles/Login.css";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -32,13 +32,9 @@ const Login = () => {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		try {
-			const { data } = await axios.post(
-				"http://localhost:3000/login",
-				{
-					...inputValue,
-				},
-				{ withCredentials: true }
-			);
+			const { data } = await axios.post("http://localhost:3000/login", {
+				...inputValue,
+			});
 			console.log(data);
 			const { success, message } = data;
 			if (success) {
@@ -60,21 +56,15 @@ const Login = () => {
 	};
 
 	return (
-		<div className="form_container">
-			<h2>Login Account</h2>
+		<div className="form-container">
+			<h2>Login</h2>
 			<form onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="email">Email</label>
-					<input type="email" name="email" value={email} placeholder="Enter your email" onChange={handleOnChange} />
-				</div>
-				<div>
-					<label htmlFor="password">Password</label>
-					<input type="password" name="password" value={password} placeholder="Enter your password" onChange={handleOnChange} />
-				</div>
+				<input type="email" name="email" value={email} placeholder="Enter your email" onChange={handleOnChange} />
+				<input type="password" name="password" value={password} placeholder="Enter your password" onChange={handleOnChange} />
 				<button type="submit">Submit</button>
-				<span>
-					Need to signup? <Link to={"/signup"}>Signup</Link>
-				</span>
+				<p>
+					Don&#39;t have an account? <Link to={"/signup"}>Sign up here</Link>
+				</p>
 			</form>
 			<ToastContainer />
 		</div>
