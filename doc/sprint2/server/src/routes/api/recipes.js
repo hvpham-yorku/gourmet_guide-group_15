@@ -54,4 +54,15 @@ router.route("/").get(async (req, res) => {
 	res.status(200).json(paginatedData);
 });
 
+router.route("/:recipeId").get(async (req, res) => {
+	const recipeResponse = await recipeApi.request({
+		url: "/lookup.php",
+		params: {
+			i: req.params.recipeId,
+		},
+	});
+	console.log(recipeResponse.data);
+	res.status(200).json(recipeResponse.data);
+});
+
 export default router;

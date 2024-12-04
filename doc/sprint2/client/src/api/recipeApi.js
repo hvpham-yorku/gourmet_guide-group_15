@@ -8,12 +8,11 @@ const recipeApi = axios.create({
 	timeout: 1000,
 });
 
-// export const getAllRecipes = async () => {
-// 	try {
-// 		const res = await recipeApi.request();
-// 	} catch (err) {}
-// };
-
 // axios.interceptors.response.use(Promise.resolve, Promise.reject);
 
+export const getAllRecipes = async () => await recipeApi.request({ params: { query: "" } });
+
 export const getRecipeQuery = async (query, page = 1, limit = 3) => await recipeApi.request({ params: { query, page, limit } });
+
+export const getRecipeFromId = async recipeId =>
+	await recipeApi.request({ baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/api/recipes/${recipeId}` });
