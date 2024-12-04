@@ -43,7 +43,7 @@ npm install
 
 **Install and Setup MongoDB**
 
-If you do not have MongoDB installed on your computer https://www.mongodb.com/docs/manual/installation/ follow this guide.
+If you do not have MongoDB installed on your computer, follow this guide: https://www.mongodb.com/docs/manual/installation/ .
 
 Now that you have installed MongoDB onto your computer. To link your database to your backend follow the steps below.
 
