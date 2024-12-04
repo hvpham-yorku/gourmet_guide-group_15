@@ -1,13 +1,12 @@
 import "./styles/Navbar.css";
-// import React from "react";
-import logo from "./home-icon2.png";
+import Chef from "@/assets/Chef.svg?react";
 
 const Navbar = () => {
 	return (
 		<nav className="navbar">
 			<div className="navbar-left">
-				<a href="/" className="logo">
-					<img src={logo} width={30} height={30} alt="Home Icon"></img>
+				<a title="Home" href="/">
+					<Chef height={74} width={74} />
 				</a>
 			</div>
 			<div className="navbar-center">
@@ -20,7 +19,7 @@ const Navbar = () => {
 						<a href="/advanced">Advanced Search</a>
 					</li>
 					<li>
-						<a href="/database">Recipes</a>
+						<a href="/recipes">Recipes</a>
 					</li>
 					<li>
 						<a href="/ai">AI Chef</a>

@@ -10,16 +10,17 @@ function RecipeSearchEngine() {
 	const debouncedQuery = useDebounce(query);
 
 	return (
-		<>
+		<div className="searchEngineContainer">
 			<input
 				type="search"
 				value={query}
 				onChange={e => setQuery(e.target.value)}
 				placeholder="Search for your next recipe..."
+				autoFocus
 			></input>
 
 			<RecipeSearchResultView query={debouncedQuery} />
-		</>
+		</div>
 	);
 }
 

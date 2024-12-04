@@ -1,7 +1,13 @@
 import axios from "axios";
 import { Router } from "express";
 
-const recipeApi = axios.create({ baseURL: "https://www.themealdb.com/api/json/v1/1" });
+const recipeApi = axios.create({
+	baseURL: "https://www.themealdb.com/api/json/v1/1",
+	headers: {
+		"Content-Type": "application/json",
+	},
+	timeout: 1000,
+});
 
 const router = Router();
 
@@ -9,15 +15,16 @@ router.use("/", (req, res, next) => {
 	res.paginate = data => {
 		const displayLimit = parseInt(req.query.limit) || 3;
 		if (data.meals?.length > displayLimit) {
-			const page = parseInt(req.query.page) || 1;
+			const currentPage = parseInt(req.query.page) || 1;
+			const totalPages = Math.ceil(data.meals.length / displayLimit);
 
-			const start = (page - 1) * displayLimit;
-			const end = page * displayLimit;
+			const start = (currentPage - 1) * displayLimit;
+			const end = currentPage * displayLimit;
 
 			data.meals = data.meals.slice(start, end);
 			data.paginationData = {
-				currentPage: page,
-				totalPages: Math.ceil(data.meals.length),
+				currentPage,
+				totalPages,
 			};
 		}
 		/*
@@ -39,7 +46,7 @@ router.route("/").get(async (req, res) => {
 	const recipeResponse = await recipeApi.request({
 		url: "/search.php",
 		params: {
-			s: "",
+			s: req.query.query ?? "",
 		},
 	});
 
@@ -47,16 +54,15 @@ router.route("/").get(async (req, res) => {
 	res.status(200).json(paginatedData);
 });
 
-router.route("/:query").get(async (req, res) => {
+router.route("/:recipeId").get(async (req, res) => {
 	const recipeResponse = await recipeApi.request({
-		url: "/search.php",
+		url: "/lookup.php",
 		params: {
-			s: req.params.query,
+			i: req.params.recipeId,
 		},
 	});
-
-	const paginatedData = res.paginate(recipeResponse.data);
-	res.status(200).json(paginatedData);
+	console.log(recipeResponse.data);
+	res.status(200).json(recipeResponse.data);
 });
 
 export default router;

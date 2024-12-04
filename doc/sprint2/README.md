@@ -100,7 +100,7 @@ TOKEN_KEY=
 
 Now you are all set!
 
-### 3. Start the development servers and dependencies
+## Starting The Development Servers
 
 Frontend
 
